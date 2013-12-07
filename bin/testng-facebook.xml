@@ -1,6 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Facebook UI Selenium WebDriver Tests" verbose="1">
+
+    <parameter name="browser" value="firefox"/>
+    <parameter name="facebook_url" value="http://www.facebook.com"/>
+    <parameter name="facebook_user_name" value=""/>
+    <parameter name="facebook_user_password" value=""/>
+
     <test name="Login/Logout">
         <classes>
             <class name="com.blogspot.automatethebox.application.facebook.test_scripts.LoginTest"/>

@@ -1,5 +1,6 @@
 package com.blogspot.automatethebox.application.facebook.pages;
 
+import com.blogspot.automatethebox.tools.selenium.WebDriverService;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,8 +15,8 @@ public class LoginPage {
 
     private WebDriver driver;
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
+    public LoginPage() {
+        this.driver = WebDriverService.getDriver();
     }
 
     public void login(String emailAddress, String password) {
