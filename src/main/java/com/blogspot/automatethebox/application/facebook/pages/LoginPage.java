@@ -1,32 +1,44 @@
 package com.blogspot.automatethebox.application.facebook.pages;
 
-import com.blogspot.automatethebox.tools.selenium.WebDriverService;
-import org.openqa.selenium.By;
+import com.google.common.base.Preconditions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * @author Lalit Kumar
  *         https://automatethebox.blogspot.com
  */
 public class LoginPage {
-    //  private WebElement emailAddressTextInput;
-    //  private WebElement passwordTextInput;
 
+    // Page Elements.
+    @FindBy(id = "email")
+    private WebElement email;
+    @FindBy(id = "pass")
+    private WebElement pass;
+    @FindBy(id = "loginbutton")
+    private WebElement loginButton;
+
+    // Driver instance
     private WebDriver driver;
 
-    public LoginPage() {
-        this.driver = WebDriverService.getDriver();
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    public void login(String emailAddress, String password) {
-        driver.findElement(By.id("email")).sendKeys(emailAddress);
-        driver.findElement(By.id("pass")).sendKeys(password);
-        driver.findElement(By.id("loginbutton")).click();
-    }
+    /**
+     * Login to Facebook application successfully.
+     */
+    public HomePage loginAs(String emailOrPhone, String password) {
+        Preconditions.checkNotNull(emailOrPhone, "Email or phone number parameter is null");
+        Preconditions.checkNotNull(password, "Password parameter is null");
 
-    public void logout() {
-        driver.findElement(By.id("navAccountLink")).click();
-        driver.findElement(By.id("logout_form")).click();
+        email.sendKeys(emailOrPhone);
+        pass.sendKeys(password);
+        loginButton.click();
+        return new HomePage(driver);
     }
 }

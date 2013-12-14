@@ -1,5 +1,6 @@
 package com.blogspot.automatethebox.application.facebook.test_scripts;
 
+import com.blogspot.automatethebox.application.facebook.pages.HomePage;
 import com.blogspot.automatethebox.application.facebook.pages.LoginPage;
 import com.google.common.base.Preconditions;
 import org.testng.annotations.Parameters;
@@ -15,19 +16,17 @@ public class LoginTest extends AbstractTest {
     @Override
     public void testSetup() {
         driver.get(facebookUrl);
-        loginPage = new LoginPage();
+        loginPage = new LoginPage(driver);
     }
 
     @Test(description = "Facebook Login > Logout")
     @Parameters({"facebook_user_name", "facebook_user_password"})
-    public void testMethod(String username, String password) {
-        Preconditions.checkNotNull(username, "user name parameter is null");
-        Preconditions.checkNotNull(password, "password parameter is null");
+    public void testMethod(String emailOrPhone, String password) {
 
-        // Login to Facebook [ Change the email and password to your test fb accounts ]
-        loginPage.login(username, password);
+        // Login to Facebook.
+        HomePage homePage = loginPage.loginAs(emailOrPhone, password);
 
-        // Logout
-        loginPage.logout();
+        // Logout.
+        homePage.logout();
     }
 }
