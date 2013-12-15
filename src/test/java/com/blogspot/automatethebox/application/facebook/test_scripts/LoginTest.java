@@ -2,7 +2,6 @@ package com.blogspot.automatethebox.application.facebook.test_scripts;
 
 import com.blogspot.automatethebox.application.facebook.pages.HomePage;
 import com.blogspot.automatethebox.application.facebook.pages.LoginPage;
-import com.google.common.base.Preconditions;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -15,8 +14,7 @@ public class LoginTest extends AbstractTest {
 
     @Override
     public void testSetup() {
-        driver.get(facebookUrl);
-        loginPage = new LoginPage(driver);
+        loginPage = new LoginPage(driver).get();
     }
 
     @Test(description = "Facebook Login > Logout")
