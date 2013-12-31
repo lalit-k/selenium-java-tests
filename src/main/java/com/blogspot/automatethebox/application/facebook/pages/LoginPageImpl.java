@@ -29,14 +29,14 @@ public class LoginPageImpl extends LoadableComponent<LoginPageImpl> implements L
 
     @Override
     protected void load() {
-        driver.get(URL);
+        driver.get(APP_URL);
     }
 
     @Override
     protected void isLoaded()
             throws Error {
         String actualTitle = driver.getTitle();
-        assertEquals(actualTitle, TITLE, "Not on the Facebook login page.");
+        assertEquals(actualTitle, APP_TITLE, "Not on the Facebook login page.");
     }
 
     @Override

@@ -1,14 +1,14 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Facebook UI Selenium WebDriver Tests" verbose="1">
+<suite name="Facebook UI Selenium WebDriver Tests" verbose="10">
 
-    <parameter name="browser" value="htmlunit"/>
+    <parameter name="browser" value="firefox"/>
     <parameter name="facebook_user_name" value=""/>
     <parameter name="facebook_user_password" value=""/>
 
-    <test name="Login/Logout">
+    <test name="Login/Logout" verbose="10">
         <classes>
-            <class name="com.blogspot.automatethebox.application.facebook.test_scripts.LoginTest"/>
+            <class name="com.blogspot.automatethebox.application.facebook.test_scripts.UpdateFacebookStatusTest"/>
         </classes>
     </test>
 </suite>

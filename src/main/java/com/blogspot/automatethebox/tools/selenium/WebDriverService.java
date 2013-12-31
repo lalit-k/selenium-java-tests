@@ -34,7 +34,8 @@ public class WebDriverService {
         } else if (browser.toLowerCase().equals("chrome")) {
             driver = new ChromeDriver();
         }
-        driver.manage().timeouts().implicitlyWait(60L, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(120L, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(120L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         return driver;
     }

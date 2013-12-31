@@ -5,8 +5,8 @@ package com.blogspot.automatethebox.application.facebook.pages;
  *         https://automatethebox.blogspot.com
  */
 public interface LoginPage {
-    String URL = "http://www.facebook.com";
-    String TITLE = "Welcome to Facebook - Log In, Sign Up or Learn More";
+    String APP_URL = "http://www.facebook.com";
+    String APP_TITLE = "Welcome to Facebook - Log In, Sign Up or Learn More";
 
     /**
      * Login to Facebook application successfully.

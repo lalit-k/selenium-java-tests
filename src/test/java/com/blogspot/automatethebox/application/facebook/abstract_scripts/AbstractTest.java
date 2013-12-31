@@ -1,4 +1,4 @@
-package com.blogspot.automatethebox.application.facebook.test_scripts;
+package com.blogspot.automatethebox.application.facebook.abstract_scripts;
 
 import com.blogspot.automatethebox.tools.selenium.WebDriverService;
 import org.openqa.selenium.WebDriver;
