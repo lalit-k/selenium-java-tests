@@ -14,7 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 public class FacebookNavigationImpl implements FacebookNavigation {
 
     // Web Elements.
-    @FindBy(xpath = "//li[@id='navTimeline']/a")
+    @FindBy(css = "span.headerTinymanName")
     private WebElement profilePageButton;
 
     // Driver instance.
