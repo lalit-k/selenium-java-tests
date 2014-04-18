@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -15,6 +16,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class WebDriverService {
     private static WebDriver driver;
+
+    // Current users directory.
+    private static final String USER_DIR = System.getProperty("user.dir");
+
+    // Driver exe files directory.
+    private static final String DRIVERS_EXE_DIR = USER_DIR + File.separator + "src" + File.separator + "main" +
+            File.separator + "java" + File.separator + "com" + File.separator + "blogspot" + File.separator +
+            "automatethebox" + File.separator + "tools" + File.separator + "selenium" + File.separator + "resources" +
+            File.separator + "drivers_exe";
+
+    // Chrome driver location.
+    private static final String CHROME_DRIVER = DRIVERS_EXE_DIR + File.separator + "chromedriver.exe";
 
     public static WebDriver getDriver() {
         return driver;
@@ -32,6 +45,7 @@ public class WebDriverService {
         } else if (browser.toLowerCase().equals("ie")) {
             driver = new InternetExplorerDriver();
         } else if (browser.toLowerCase().equals("chrome")) {
+            System.setProperty("webdriver.chrome.driver", CHROME_DRIVER);
             driver = new ChromeDriver();
         }
         driver.manage().timeouts().implicitlyWait(120L, TimeUnit.SECONDS);
