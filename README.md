@@ -12,7 +12,7 @@ enhancements if you like, we will definitely look into that and provide the solu
 2. Object oriented Architecture
 3. Rich TestNG test framework support [ http://testng.org/doc/index.html ]
 4. Maven Support - Software project management and comprehension tool [ http://maven.apache.org/ ]
-5. Support execution on latest firefox browser [windows only]
+5. Support execution on latest firefox and Google Chrome browsers [windows only]
 
 ## Test Application
 We have used functionally rich and well known Facebook as test application, so it would be easier to understand the
