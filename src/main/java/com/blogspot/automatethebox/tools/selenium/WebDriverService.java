@@ -28,6 +28,7 @@ public class WebDriverService {
 
     // Chrome driver location.
     private static final String CHROME_DRIVER = DRIVERS_EXE_DIR + File.separator + "chromedriver.exe";
+    private static final String IE_DRIVER = DRIVERS_EXE_DIR + File.separator + "IEDriverServer.exe";
 
     public static WebDriver getDriver() {
         return driver;
@@ -43,6 +44,7 @@ public class WebDriverService {
         } else if (browser.toLowerCase().equals("firefox")) {
             driver = new FirefoxDriver();
         } else if (browser.toLowerCase().equals("ie")) {
+            System.setProperty("webdriver.ie.driver", IE_DRIVER);
             driver = new InternetExplorerDriver();
         } else if (browser.toLowerCase().equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", CHROME_DRIVER);
