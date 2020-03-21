@@ -9,20 +9,22 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public class ProfilePageImpl implements ProfilePage {
 
     // Web Elements.
-    @FindBy(xpath = "//li[contains(@class,'fbTimelineUnit')][2]//span[contains(@class,'userContent')]")
+    @FindBy(
+        xpath = "//li[contains(@class,'fbTimelineUnit')][2]//span[contains(@class,'userContent')]")
     private WebElement userRecentTextStatus;
 
     // Page sub-modules.
     private UpdateStatusPanel updateStatusPanel;
 
     public ProfilePageImpl(WebDriver driver) {
-        PageFactory.initElements(driver, this);  //TODO: prohibit initialising dynamic elements with PageFactory.
+        PageFactory.initElements(driver,
+            this);  //TODO: prohibit initialising dynamic elements with PageFactory.
         updateStatusPanel = new UpdateStatusPanelImpl(driver);
     }
 

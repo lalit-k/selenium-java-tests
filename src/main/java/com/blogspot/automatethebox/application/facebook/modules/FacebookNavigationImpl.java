@@ -8,8 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public class FacebookNavigationImpl implements FacebookNavigation {
 

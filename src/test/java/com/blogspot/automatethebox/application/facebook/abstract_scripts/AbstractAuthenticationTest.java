@@ -8,8 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public abstract class AbstractAuthenticationTest extends AbstractTest {
     protected HomePage homePage;

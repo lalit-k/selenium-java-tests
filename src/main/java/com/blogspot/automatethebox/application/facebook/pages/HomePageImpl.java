@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.LoadableComponent;
 import static org.testng.Assert.assertEquals;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public class HomePageImpl extends LoadableComponent<HomePageImpl> implements HomePage {
 
@@ -35,8 +35,7 @@ public class HomePageImpl extends LoadableComponent<HomePageImpl> implements Hom
     }
 
     @Override
-    protected void isLoaded()
-            throws Error {
+    protected void isLoaded() throws Error {
         String actualTitle = driver.getTitle();
         assertEquals(actualTitle, APP_TITLE, "Not on the Facebook Home page.");
     }

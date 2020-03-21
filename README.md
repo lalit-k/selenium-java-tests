@@ -27,17 +27,17 @@ framework and then implement the same for your project as per your requirements.
 ## Prerequisites Software/Tools
 1. Git [ http://git-scm.com/downloads ]
 2. Maven [ http://maven.apache.org/ ]
-3. Java Development Kit 7
-4. Java Runtime Environment 7
+3. Java Development Kit 8
+4. Java Runtime Environment 8
 5. IDE [ I prefer IntelliJ IDEA  for development :) ]
 
-## Getting Started [ On Windows ]
+## Getting Started
 1. Open the Git bash and clone the project using below command on the target directory:
      git clone https://github.com/lalit-k/selenium-java-tests.git
 2. Once the project is cloned successfully go the the project directory and set the facebook user name and password
    values in testng-facebook.xml as:
      <parameter name="facebook_user_name" value="testuser@facebook.com"/>
      <parameter name="facebook_user_password" value="password"/>
-3. Open the windows command prompt 'cmd' and navigate to the project directory 'selenium-webdriver-tests'.
+3. Open the windows command prompt 'cmd'/'terminal' and navigate to the project directory 'selenium-webdriver-tests'.
 4. Run the below command to start the tests.
      mvn clean test

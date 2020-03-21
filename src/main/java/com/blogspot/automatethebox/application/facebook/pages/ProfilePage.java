@@ -3,8 +3,8 @@ package com.blogspot.automatethebox.application.facebook.pages;
 /**
  * Represents the user profile page.
  *
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public interface ProfilePage {
 

@@ -5,8 +5,8 @@ import com.blogspot.automatethebox.application.facebook.pages.ProfilePage;
 /**
  * Represents the facebook pages navigation functionality.
  *
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public interface FacebookNavigation {
     /**

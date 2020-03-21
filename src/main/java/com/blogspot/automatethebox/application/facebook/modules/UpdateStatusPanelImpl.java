@@ -3,12 +3,11 @@ package com.blogspot.automatethebox.application.facebook.modules;
 import com.google.common.base.Preconditions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.browserlaunchers.Sleeper;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /**
- * @author Lalit Kumar
+ * @author Lalit Kumar Narnaulia
  *         https://automatethebox.blogspot.com
  */
 public class UpdateStatusPanelImpl implements UpdateStatusPanel {
@@ -34,7 +33,11 @@ public class UpdateStatusPanelImpl implements UpdateStatusPanel {
         postButton.click();
         int wait = 0;
         while (wait++ <= WAIT_FOR_POST_UPDATE && postButton.isDisplayed()) {
-            Sleeper.sleepTightInSeconds(5);
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         return this;
     }

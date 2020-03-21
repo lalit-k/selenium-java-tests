@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public class LoginPageImpl extends LoadableComponent<LoginPageImpl> implements LoginPage {
 
@@ -33,10 +33,10 @@ public class LoginPageImpl extends LoadableComponent<LoginPageImpl> implements L
     }
 
     @Override
-    protected void isLoaded()
-            throws Error {
+    protected void isLoaded() throws Error {
         String actualTitle = driver.getTitle();
-        assertEquals(actualTitle, APP_TITLE, "Not on the Facebook login page.");
+        assertTrue(actualTitle.toLowerCase().contains(APP_TITLE_STRING),
+            "Facebook login page not loaded");
     }
 
     @Override

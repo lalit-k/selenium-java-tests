@@ -2,7 +2,10 @@
 
 <suite name="Facebook UI Selenium WebDriver Tests" verbose="10">
 
-    <parameter name="browser" value="firefox"/>
+    <!--Browser to run tests: htmlunit / firefox / ie / chrome -->
+    <parameter name="browser" value="chrome"/>
+
+    <!-- Facebook login username and password-->
     <parameter name="facebook_user_name" value=""/>
     <parameter name="facebook_user_password" value=""/>
 

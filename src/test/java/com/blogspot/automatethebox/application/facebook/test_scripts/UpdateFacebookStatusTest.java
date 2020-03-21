@@ -9,8 +9,8 @@ import java.util.Date;
 import static org.testng.Assert.assertEquals;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public class UpdateFacebookStatusTest extends AbstractAuthenticationTest {
 
@@ -29,6 +29,7 @@ public class UpdateFacebookStatusTest extends AbstractAuthenticationTest {
         profilePage.updateStatus(status);
 
         // Retrieve and verify the recent status.
-        assertEquals(profilePage.getRecentStatus(), status, "Facebook text status update is not working.");
+        assertEquals(profilePage.getRecentStatus(), status,
+            "Facebook text status update is not working.");
     }
 }

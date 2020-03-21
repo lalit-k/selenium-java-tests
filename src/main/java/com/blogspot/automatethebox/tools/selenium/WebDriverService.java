@@ -11,48 +11,78 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
-public class WebDriverService {
+public final class WebDriverService {
     private static WebDriver driver;
 
-    // Current users directory.
-    private static final String USER_DIR = System.getProperty("user.dir");
-
-    // Driver exe files directory.
-    private static final String DRIVERS_EXE_DIR = USER_DIR + File.separator + "src" + File.separator + "main" +
-            File.separator + "java" + File.separator + "com" + File.separator + "blogspot" + File.separator +
-            "automatethebox" + File.separator + "tools" + File.separator + "selenium" + File.separator + "resources" +
-            File.separator + "drivers_exe";
-
-    // Chrome driver location.
-    private static final String CHROME_DRIVER = DRIVERS_EXE_DIR + File.separator + "chromedriver.exe";
-    private static final String IE_DRIVER = DRIVERS_EXE_DIR + File.separator + "IEDriverServer.exe";
-
-    public static WebDriver getDriver() {
-        return driver;
+    private WebDriverService() {
     }
+
+    // Driver executable files directory.
+    private static final String DRIVERS_DIR = System.getProperty("user.dir") + File.separator +
+        "src" + File.separator + "main" + File.separator + "java" + File.separator + "com" +
+        File.separator + "blogspot" + File.separator + "automatethebox" + File.separator + "tools" +
+        File.separator + "selenium" + File.separator + "resources" + File.separator + "drivers";
+
+    private static final String IE_DRIVER = DRIVERS_DIR + File.separator + "IEDriverServer.exe";
 
     public static WebDriver startDriver(String browser) {
         Preconditions.checkNotNull(browser, "Target browser parameter is null");
-        if (WebDriverService.driver != null) {
-            throw new AssertionError("Something is wrong... WebDriver instance is tried to be re-initialized");
+        if (driver != null) {
+            return driver;
         }
-        if (browser.toLowerCase().equals("htmlunit")) {
-            driver = new HtmlUnitDriver();
-        } else if (browser.toLowerCase().equals("firefox")) {
-            driver = new FirefoxDriver();
-        } else if (browser.toLowerCase().equals("ie")) {
-            System.setProperty("webdriver.ie.driver", IE_DRIVER);
-            driver = new InternetExplorerDriver();
-        } else if (browser.toLowerCase().equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", CHROME_DRIVER);
+
+        String os = System.getProperty("os.name").toLowerCase();
+        switch (browser) {
+        case "chrome":
+            if (os.startsWith("mac")) {
+                System.setProperty("webdriver.chrome.driver",
+                    DRIVERS_DIR + File.separator + "chromedriver_mac64_80-0-3987-106");
+            } else if (os.startsWith("win")) {
+                System.setProperty("webdriver.chrome.driver",
+                    DRIVERS_DIR + File.separator + "chromedriver_win32_80-0-3987-106.exe");
+            } else {
+                System.setProperty("webdriver.chrome.driver",
+                    DRIVERS_DIR + File.separator + "chromedriver_linux64_80-0-3987-106.exe");
+            }
             driver = new ChromeDriver();
+            break;
+        case "firefox":
+            if (os.startsWith("mac")) {
+                System.setProperty("webdriver.gecko.driver",
+                    DRIVERS_DIR + File.separator + "geckodriver_macos_0-26-0");
+            } else if (os.startsWith("win")) {
+                System.setProperty("webdriver.gecko.driver",
+                    DRIVERS_DIR + File.separator + "geckodriver_win32_0-26-0.exe");
+            } else {
+                System.setProperty("webdriver.gecko.driver",
+                    DRIVERS_DIR + File.separator + "geckodriver_linux32_0-26-0");
+            }
+            driver = new FirefoxDriver();
+            break;
+        case "ie":
+            if (!os.startsWith("win")) throw new AssertionError(
+                "ie browser on supported on current OS " + os);
+            System.setProperty("webdriver.ie.driver",
+                DRIVERS_DIR + File.separator + "IEDriverServer_win32_3.150.1.exe");
+            driver = new InternetExplorerDriver();
+            break;
+        case "htmlunit":
+            driver = new HtmlUnitDriver();
+            break;
+        default:
+            throw new AssertionError(browser + " not supported");
         }
-        driver.manage().timeouts().implicitlyWait(120L, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(120L, TimeUnit.SECONDS);
+
+        driver.manage().timeouts().implicitlyWait(60L, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(60L, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        return driver;
+    }
+
+    public static WebDriver getDriver() {
         return driver;
     }
 

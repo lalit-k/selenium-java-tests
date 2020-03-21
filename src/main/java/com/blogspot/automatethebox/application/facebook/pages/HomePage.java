@@ -3,8 +3,8 @@ package com.blogspot.automatethebox.application.facebook.pages;
 import com.blogspot.automatethebox.application.facebook.modules.FacebookNavigation;
 
 /**
- * @author Lalit Kumar
- *         https://automatethebox.blogspot.com
+ * @author Lalit Kumar Narnaulia
+ * https://automatethebox.blogspot.com
  */
 public interface HomePage {
     String APP_TITLE = "Facebook";

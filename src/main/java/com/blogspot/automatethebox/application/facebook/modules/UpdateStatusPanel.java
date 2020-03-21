@@ -3,7 +3,7 @@ package com.blogspot.automatethebox.application.facebook.modules;
 /**
  * This Represents the Facebook status update panel displayed on home page.
  *
- * @author Lalit Kumar
+ * @author Lalit Kumar Narnaulia
  *         https://automatethebox.blogspot.com
  */
 public interface UpdateStatusPanel {
